@@ -37,7 +37,7 @@ stages{
               }
               post {
                    success {
-                    emailext (to: 'bikeusaland@google.com',
+                    emailext (to: 'bikeusaland@gmail.com',
                           subject: "build deployed and ready for QA",
                           body: "The deployment is ready for QA....... currentBuild.fullDisplayName {$currentBuild.fullDisplayName}, env {env} "
                     )
