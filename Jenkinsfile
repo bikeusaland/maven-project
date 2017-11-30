@@ -29,8 +29,8 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "scp -i C:\\Program Files (x86)\\Jenkins\\id.rsa **/target/*.war pi@${params.tomcat_dev}:/usr/share/tomcat/webapps"
-                        bat "scp -i C:\\Program Files (x86)\\Jenkins\\id.rsa **/target/*.war pi@${params.tomcat_qa}:/usr/share/tomcat/webapps"
+                        bat "C:\\Program Files (x86)\\Jenkins\\scp -i C:\\Program Files (x86)\\Jenkins\\id.rsa **/target/*.war pi@${params.tomcat_dev}:/usr/share/tomcat/webapps"
+                        bat "C:\\Program Files (x86)\\Jenkins\\scp -i C:\\Program Files (x86)\\Jenkins\\id.rsa **/target/*.war pi@${params.tomcat_qa}:/usr/share/tomcat/webapps"
                     }
                 }
 
