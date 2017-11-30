@@ -26,7 +26,6 @@ stages{
         }
 
         stage ('Deployments'){
-            parallel{
                 stage ('Deploy to Staging'){
                     steps {
                         bat "C:\\scp -hostkey eb:64:a6:de:60:89:d1:46:09:36:5d:8e:30:19:57:09 -i C:\\\\id.ppk C:\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_dev}:/usr/share/tomcat/webapps"
@@ -54,5 +53,5 @@ stages{
                 }
             }
         }
-    }
+  
 }
