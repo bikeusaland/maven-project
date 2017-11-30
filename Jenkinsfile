@@ -29,16 +29,16 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "C:\\scp -i C:\\\\id.ppk C:\\Program Files\\ (x86)\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_dev}:/usr/share/tomcat/webapps"
-                        bat "C:\\scp -i C:\\\\id.ppk C:\\Program Files\\ (x86)\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_qa}:/usr/share/tomcat/webapps"
+                        bat "C:\\scp -batch -i C:\\\\id.ppk C:\\Program Files\\ (x86)\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_dev}:/usr/share/tomcat/webapps"
+                        bat "C:\\scp -batch -i C:\\\\id.ppk C:\\Program Files\\ (x86)\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_qa}:/usr/share/tomcat/webapps"
   
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        bat "C:\\scp -i C:\\\\id.ppk C:\\Program Files\\ (x86)\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_stage}:/usr/share/tomcat/webapps"
-                        bat "C:\\scp -i C:\\\\id.ppk C:\\Program Files\\ (x86)\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_prod}:/usr/share/tomcat/webapps"
+                        bat "C:\\scp -batch -i C:\\\\id.ppk C:\\Program Files\\ (x86)\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_stage}:/usr/share/tomcat/webapps"
+                        bat "C:\\scp -batch -i C:\\\\id.ppk C:\\Program Files\\ (x86)\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_prod}:/usr/share/tomcat/webapps"
                     }
                 }
             }
