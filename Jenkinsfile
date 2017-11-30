@@ -42,10 +42,9 @@ stages{
                         success {
                             mail to: 'bikeusaland@google.com',
                             subject: "build deployed and ready for QA",
-                            body: "The deployment is ready for QA....... currentBuild.fullDisplayName {$currentBuild.fullDisplayName}, env {env} ",
-                    archiveArtifacts artifacts: '**/target/*.war'
-                }
-            }
+                            body: "The deployment is ready for QA....... currentBuild.fullDisplayName {$currentBuild.fullDisplayName}, env {env} "
+                        }
+                    }
                 }
                 stage ("Deploy to Production"){
                     steps {
