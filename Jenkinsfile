@@ -21,9 +21,10 @@ stages{
                 success {
                     echo 'Now Archiving...'
                     archiveArtifacts artifacts: '**/target/*.war'
-                    emailext (to: 'bikeusaland@google.com',
-                          subject: "build Complete and attempting deploy",
-                          body: "Ready for deployment to Dev and QA....... currentBuild.fullDisplayName {$currentBuild.fullDisplayName}, env {env} "
+                    emailext (to: 'bikeusaland@yahoo.com',
+                          subject: "Build Complete '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                          body: """<p>Build Complete: '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+                          <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
                     )
                 }
                 }
