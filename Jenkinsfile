@@ -21,10 +21,11 @@ stages{
                 success {
                     echo 'Now Archiving...'
                     archiveArtifacts artifacts: '**/target/*.war'
-                    mail to: 'bikeusaland@google.com',
+                    emailext (to: 'bikeusaland@google.com',
                           subject: "build Complete and attempting deploy",
                           body: "Ready for deployment to Dev and QA....... currentBuild.fullDisplayName {$currentBuild.fullDisplayName}, env {env} "
-                   }
+                    )
+                }
                 }
             }
         
@@ -35,9 +36,10 @@ stages{
               }
               post {
                    success {
-                     mail to: 'bikeusaland@google.com',
+                    emailext (to: 'bikeusaland@google.com',
                           subject: "build deployed and ready for QA",
                           body: "The deployment is ready for QA....... currentBuild.fullDisplayName {$currentBuild.fullDisplayName}, env {env} "
+                    )
                    }
              }
         }
