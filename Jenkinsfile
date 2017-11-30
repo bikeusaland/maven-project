@@ -15,7 +15,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                bat 'C:\Users\Greg\Downloads\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin\mvn clean package'
+                bat 'C:\\Users\\Greg\\Downloads\\apache-maven-3.5.2-bin\\apache-maven-3.5.2\\bin\\mvn clean package'
             }
             post {
                 success {
