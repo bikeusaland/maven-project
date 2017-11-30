@@ -21,6 +21,10 @@ stages{
                 success {
                     echo 'Now Archiving...'
                     archiveArtifacts artifacts: '**/target/*.war'
+                    mail to: 'bikeusaland@google.com',
+                          subject: "build Complete and attempting deploy",
+                          body: "Ready for deployment to Dev and QA....... currentBuild.fullDisplayName {$currentBuild.fullDisplayName}, env {env} "
+                   }
                 }
             }
         }
