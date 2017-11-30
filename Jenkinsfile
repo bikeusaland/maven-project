@@ -40,8 +40,9 @@ stages{
                     emailext (to: 'bikeusaland@gmail.com',
                           subject: "Build '${env.JOB_NAME} [${env.BUILD_NUMBER}]' deployed, ready for QA",
                           body: """<p>Deploy of '${env.JOB_NAME} [${env.BUILD_NUMBER}]': is ready for QA</p>
-                                 Once approved check &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;
-                                 to <b>Approve</b> or <b>Abort</b> production deploy</p>"""
+                                 Once approved check <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>
+                                 to <a href=http://localhost:8080/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/stop><b>Abort</b></a>
+                                 or <a href=http://localhost:8080/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/start><b>Approve</b></a> production deploy</p>"""
                     )
                    }
              }
