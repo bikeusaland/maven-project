@@ -38,6 +38,14 @@ stages{
                     steps {
                         input "Does this work on Dev and QA?"
                     }
+                    post {
+                        success {
+                            mail to: 'bikeusaland@google.com',
+                            subject: "build deployed and ready for QA",
+                            body: "The deployment is ready for QA....... currentBuild.fullDisplayName {$currentBuild.fullDisplayName}, env {env} ",
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
+            }
                 }
                 stage ("Deploy to Production"){
                     steps {
