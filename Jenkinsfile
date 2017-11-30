@@ -41,8 +41,8 @@ stages{
                           subject: "Build '${env.JOB_NAME} [${env.BUILD_NUMBER}]' deployed, ready for QA",
                           body: """<p>Deploy of '${env.JOB_NAME} [${env.BUILD_NUMBER}]': is ready for QA</p>
                                  Once approved check <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>
-                                 to <a href=${env.BUILD_URL}/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/input/F20ffef031fd33e5d7ce3b683d15e590/proceedEmpty><b>Approve</b></a>
-                                 or <a href=${env.BUILD_URL}/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/input/F20ffef031fd33e5d7ce3b683d15e590/proceedEmpty><b>Abort</b></a>
+                                 to <a href=${env.BUILD_URL}/input/F20ffef031fd33e5d7ce3b683d15e590/proceedEmpty><b>Approve</b></a>
+                                 or <a href=${env.BUILD_URL}/input/F20ffef031fd33e5d7ce3b683d15e590/proceedEmpty><b>Abort</b></a>
                                  production deploy</p>"""
                     )
                    }
