@@ -38,8 +38,10 @@ stages{
               post {
                    success {
                     emailext (to: 'bikeusaland@gmail.com',
-                          subject: "build deployed and ready for QA",
-                          body: "The deployment is ready for QA....... currentBuild.fullDisplayName {$currentBuild.fullDisplayName}, env {env} "
+                          subject: "Build '${env.JOB_NAME} [${env.BUILD_NUMBER}]' deployed, ready for QA",
+                          body: """<p>Deploy of '${env.JOB_NAME} [${env.BUILD_NUMBER}]': is ready for QA</p>
+                                 Once approved check &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;
+                                 to <b>Approve</b> or <b>Abort</b> production deploy</p>"""
                     )
                    }
              }
