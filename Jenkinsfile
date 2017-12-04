@@ -6,6 +6,7 @@ pipeline {
          string(name: 'tomcat_qa', defaultValue: '192.168.1.22', description: 'QA Server')
          string(name: 'tomcat_stage', defaultValue: '192.168.1.23', description: 'Stage Server')
          string(name: 'tomcat_prod', defaultValue: '192.168.1.24', description: 'Production Server')
+         string(name: 'tomcat_prod2', defaultValue: '192.168.1.25', description: 'Production Server 2')
     }
 
     triggers {
@@ -56,6 +57,7 @@ stages{
                 stage ("Deploy to Production"){
                     steps {
                         bat "C:\\scp -hostkey eb:64:a6:de:60:89:d1:46:09:36:5d:8e:30:19:57:09 -i C:\\\\id.ppk C:\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_stage}:/usr/share/tomcat/webapps"
+                        bat "C:\\scp -hostkey eb:64:a6:de:60:89:d1:46:09:36:5d:8e:30:19:57:09 -i C:\\\\id.ppk C:\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_prod}:/usr/share/tomcat/webapps"
                         bat "C:\\scp -hostkey eb:64:a6:de:60:89:d1:46:09:36:5d:8e:30:19:57:09 -i C:\\\\id.ppk C:\\Jenkins\\workspace\\FullAutomation\\webapp\\target\\*.war pi@${params.tomcat_prod}:/usr/share/tomcat/webapps"
                     }
                 }
